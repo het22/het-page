@@ -25,24 +25,69 @@ export default function HomePage() {
     )
 
     return (
-        <Main>
-            <MenuUl>
-                {menuItems.map((menuItem) => (
-                    <MenuLi key={menuItem.id}>
-                        <Button value={menuItem.id}>
-                            <menuItem.Icon />
-                        </Button>
-                    </MenuLi>
-                ))}
-            </MenuUl>
-        </Main>
+        <Layout>
+            <Header>
+                <Title>het</Title>
+            </Header>
+            <Main>
+                <MenuUl>
+                    {menuItems.map((menuItem) => (
+                        <MenuLi key={menuItem.id}>
+                            <Button value={menuItem.id}>
+                                <menuItem.Icon />
+                            </Button>
+                        </MenuLi>
+                    ))}
+                </MenuUl>
+            </Main>
+        </Layout>
     )
 }
 
-const Main = styled.main`
+const Layout = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
     height: 100vh;
+    min-width: 360px;
+    min-height: 720px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(238, 238, 238, 1) 100%
+    );
+
+    & > * {
+        width: 720px;
+        min-width: 360px;
+        max-width: 100vw;
+    }
+`
+
+const Header = styled.header`
+    height: 60px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const Title = styled.h1`
+    margin: 0;
+    padding: 0 20px;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    user-select: none;
+
+    @media only screen and (max-width: 720px) {
+        font-size: 18px;
+    }
+`
+
+const Main = styled.main`
+    display: flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
@@ -51,10 +96,15 @@ const Main = styled.main`
 
 const MenuUl = styled.ul`
     margin: 0;
+    margin-bottom: 20%;
     padding: 0;
-    height: 80px;
+    height: 100px;
     display: flex;
     align-items: end;
+
+    @media only screen and (max-width: 720px) {
+        height: 60px;
+    }
 `
 
 const MenuLi = styled.li`
@@ -75,8 +125,8 @@ const Button = styled.button`
     transition: padding 0.2s;
 
     & > svg {
-        width: 80px;
-        height: 80px;
+        width: 100%;
+        height: 100%;
         transition: transform 0.2s;
     }
 
@@ -85,6 +135,16 @@ const Button = styled.button`
 
         & > svg {
             transform: scale(1.2);
+        }
+    }
+
+    @media only screen and (max-width: 720px) {
+        padding: 5px;
+        width: 50px;
+        height: 50px;
+
+        &:hover {
+            padding: 10px;
         }
     }
 `
