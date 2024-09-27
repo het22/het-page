@@ -5,6 +5,7 @@ import IconCode from '/assets/icons/code.svg'
 import IconGame from '/assets/icons/game.svg'
 import IconHoop from '/assets/icons/hoop.svg'
 import IconRead from '/assets/icons/read.svg'
+import ArticleList from 'components/ArticleList'
 
 type MenuItem = {
     id: string
@@ -39,6 +40,7 @@ export default function HomePage() {
                         </MenuLi>
                     ))}
                 </MenuUl>
+                <ArticleList />
             </Main>
         </Layout>
     )
@@ -87,6 +89,7 @@ const Title = styled.h1`
 
 const Main = styled.main`
     display: flex;
+    flex-direction: column;
     flex: 1;
     align-items: center;
     justify-content: center;
