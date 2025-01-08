@@ -21,27 +21,22 @@
     "incremental": true,
     "baseUrl": "src",
     "paths": {
-      "@pages/*": [
-        "@pages/*"
-      ],
-      "@hooks/*": [
-        "@hooks/*"
-      ],
-      "@types/*": [
-        "@types/*"
-      ],
-      "@components/*": [
-        "@components/*"
-      ],
-      "@utils/*": [
-        "@utils/*"
-      ]
-    }
+      "@/*": ["*"],
+      "@app/*": ["app/*"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
